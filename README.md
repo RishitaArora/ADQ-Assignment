@@ -1,6 +1,9 @@
 # Ecommerce-API for watch Catalogue
 ##### - By Rishita Arora, Final year BE Computer Science student at BITS Pilani Dubai Campus (2017A7PS0168U)
 
+Github link:
+https://github.com/RishitaArora/ADQ-Assignment
+
 ## Summary:
 #### Purpose : 
 This is a useful REST API for a specific watch catalogue which returns the total checkout price after applying discounts.
