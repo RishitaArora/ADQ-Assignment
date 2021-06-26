@@ -29,9 +29,11 @@ public class RestController1 {
 		return WatchRepository.findAll();
 	}
 	@PostMapping(value = "/checkout",  consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public int checkout(@RequestBody List<String> IDs){
+	public HashMap<String,Integer> checkout(@RequestBody List<String> IDs){
             int price = getFinalAmount(IDs);
-            return price;
+            HashMap<String,Integer> priceHm = new HashMap<String,Integer>();
+            priceHm.put("price",price);
+            return priceHm;
 	}
 
 
@@ -56,7 +58,13 @@ public class RestController1 {
         for(String id: po.keySet()){
 
             //get Database table record values for that ID
-           Watch a = WatchRepository.getById(id);
+            
+           
+            if(WatchRepository.existsById(id)){
+                Watch a = WatchRepository.getById(id);
+            
+
+
            int discountQuantity = a.getDiscountQuantity();
            int unitPrice = a.getUnitPrice();
 
@@ -74,10 +82,13 @@ public class RestController1 {
 
            
            price += (quantityToBePurchased * unitPrice);
-
+        }
         }
        
     
+
+
+        
         return price;
     }   
 
