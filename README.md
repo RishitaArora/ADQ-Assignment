@@ -78,7 +78,8 @@ Unit tests are written in JUnitTests.java for various cases :
 6. Checkout with two discounts on same item and one non-discount item of same WatchID should work with correct output
 7. Checkout containing IDs which are not mentioned in Watch table should ignore the irrelevant IDs while returning output.
 
-
+#### Future Work
+In the future, we can add more integration tests. We can also increase the scope from just watches to multiple items.
 
 
 #### License
